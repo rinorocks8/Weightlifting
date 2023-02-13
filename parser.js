@@ -36,6 +36,12 @@ async function scrapeExercisesPage(i) {
       }
     });
 
+    // let instructions = $$("h2 strong");
+    // instructions.each((j, element) => {
+    //   if ($$(element).text() === "How To Perform Exercise")
+    //     exercise.Instructions = $$(element).parent().parent().find("p").text();
+    // });
+
     exercise.name = exerciseName;
     exercises.push(exercise);
   }
@@ -45,7 +51,7 @@ async function scrapeExercisesPage(i) {
 
 async function scrapeExercises() {
   let exercises = [];
-  for (let i = 1; i <= 1; i++) {
+  for (let i = 1; i <= 130; i++) {
     console.log(
       Math.round((i / 130) * 100 * 100) / 100 + "% (Page " + i + "/130)"
     );
@@ -66,6 +72,7 @@ scrapeExercises().then((exercises) => {
       Mechanics: exercise["Mechanics"] || "",
       Equipment: exercise["Equipment"] || "",
       Difficulty: exercise["Difficulty"] || "",
+      // Instructions: exercise["Instructions"] || "",
     };
   });
 
